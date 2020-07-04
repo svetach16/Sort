@@ -128,7 +128,43 @@ public final class Sort {
 
             i = iMax;
         }
+    }
 
+
+    private static int partition(int[] a, int begin, int end) {
+        int pivot = a[end - 1];
+        int i = begin;
+
+        for (int j = begin; j < end - 1; j++) {
+            if (a[j] <= pivot) {
+                if (i != j) {
+                    int tmp = a[i];
+
+                    a[i] = a[j];
+                    a[j] = tmp;
+                }
+
+                i++;
+            }
+        }
+
+        int tmp = a[i];
+
+        a[i] = a[end - 1];
+        a[end - 1] = tmp;
+
+        return i;
+    }
+
+
+    public static void quick(int[] a, int begin, int end) {
+        if (end - begin <= 1) {
+            return;
+        }
+        int p = partition(a, begin, end);
+
+        quick(a, begin, p);
+        quick(a, p + 1, end);
     }
 }
 
