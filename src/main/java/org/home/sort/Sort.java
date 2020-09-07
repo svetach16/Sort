@@ -1,4 +1,4 @@
-package org.home;
+package org.home.sort;
 
 public final class Sort {
     private Sort() {
@@ -35,7 +35,7 @@ public final class Sort {
         } while (wasChanged);
     }
 
-    public static void select(int[] a) {
+    public static void selection(int[] a) {
         for (int j = 0; j < a.length - 1; j++) {
             int iMin = j;
 
